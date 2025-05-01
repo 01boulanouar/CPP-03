@@ -1,4 +1,4 @@
-NAME = Orthodox
+NAME = AndOpen
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98

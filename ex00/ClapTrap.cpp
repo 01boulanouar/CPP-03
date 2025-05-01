@@ -6,7 +6,7 @@
 /*   By: moboulan <moboulan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 10:12:28 by moboulan          #+#    #+#             */
-/*   Updated: 2025/05/01 14:32:56 by moboulan         ###   ########.fr       */
+/*   Updated: 2025/05/01 22:43:07 by moboulan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,15 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap " << _name << " could not be repaired. No energie points." << std::endl;
         return ;
     }
+    else if (_hit_points + amount > 10)
+    {
+        std::cout << "ClapTrap " << _name << " could not be repaired above it's max hit points" << std::endl;
+        return ;
+    }
     else
     {
         _energy_points--;
         _hit_points += amount;
-        std::cout << "ClapTrap "<< _name <<" repaired " << amount << "of hit points!" << std::endl;
+        std::cout << "ClapTrap "<< _name << " repaired " << amount << " hit points!" << std::endl;
     }
 }
