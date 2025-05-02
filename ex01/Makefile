@@ -1,0 +1,28 @@
+NAME = Serena
+
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
+
+RM = rm -f
+
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+%.o : %.cpp ClapTrap.hpp ScavTrap.hpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean :
+	$(RM) $(OBJ)
+
+fclean : clean
+	$(RM) $(NAME)
+
+re : fclean all
+
+.PHONY: clean
